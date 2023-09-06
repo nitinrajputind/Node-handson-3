@@ -10,7 +10,6 @@ app.get("/", (req,res)=>{
     res.send("WelCome To the Express !! Server is Runing Now");
 });
 
-
 app.get("/main", (req,res)=>{
     res.send({
         "what is Express?" : "Express.js is a small framework that works on top of Node.js web server functionality to simplify its APIs and add helpful new features. It makes it easier to organize your application’s functionality with middleware and routing. It adds helpful utilities to Node.js HTTP objects and facilitates the rendering of dynamic HTTP objects."
@@ -22,5 +21,10 @@ app.get("/main", (req,res)=>{
 const PORT = 4000;
 
 app.listen(PORT,()=>{
-    console.log(`Server is Runing on http://localhost:${PORT}`)
+    try{
+        console.log(`Server is Runing on http://localhost:${PORT}`)
+    }
+    catch(err){
+        console.log(`Server is Showing Error to Start ${err}`)
+    }
 });
