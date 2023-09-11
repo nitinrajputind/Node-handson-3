@@ -1,20 +1,23 @@
 const express = require('express');
+const UserRoute = require('./Router/UserRoute');
+const { ApplicationLevel } = require('./Middleware/UserMiddleware');
 
 
 // rest Object with Express
 const app = express();
 
 // rest Api 
-
 app.get("/", (req,res)=>{
     res.send("WelCome To the Express !! Server is Runing Now");
 });
 
-app.get("/main", (req,res)=>{
-    res.send({
-        "what is Express?" : "Express.js is a small framework that works on top of Node.js web server functionality to simplify its APIs and add helpful new features. It makes it easier to organize your application’s functionality with middleware and routing. It adds helpful utilities to Node.js HTTP objects and facilitates the rendering of dynamic HTTP objects."
-    });
-});
+// Application Level Middleware 
+
+app.use(ApplicationLevel)
+// User Routes
+app.use("/user", UserRoute)
+
+
 
 
 //PORT 
