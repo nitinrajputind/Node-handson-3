@@ -6,7 +6,7 @@ const UserRoute = require("express").Router();
 UserRoute.get("/login/:age", validate, login)
 
 // SignUp 
-UserRoute.get("/Signup", Signup)
+UserRoute.get("/Signup", validate, Signup)
 
 //logout 
 UserRoute.get("/logout", logout)
